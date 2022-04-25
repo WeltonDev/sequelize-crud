@@ -1,6 +1,10 @@
+const bancoDeDados = require("../database");
+const Modelo = require("../models/Modelo");
+
 const carroController = {
-  listarCarros( req, res ){
-    res.send("rotas");
+  async listarCarros( req, res ){
+    lista = await Modelo.findAll();
+    res.json(lista);
   }
 };
 
