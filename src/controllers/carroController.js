@@ -8,11 +8,13 @@ const carroController = {
   },
 
   async criarCarros( req, res ){
-    const { Nome_Modelo, Ano_Modelo } = req.query;
+    const { Nome_Modelo, Ano_Modelo } = req.body;
     novoCarro = await Modelo.create({
       Nome_Modelo, Ano_Modelo
     });
     res.json(novoCarro);
+   res.json(req.body)
+   res.send(`Ola: ${JSON.stringify(req.body)}`);
   },
 
   async apagarCarros( req, res ){
